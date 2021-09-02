@@ -1,6 +1,6 @@
-# grad-template
+# mallard-mobileapp
 
-template for all graduate repositories
+Create an mobile app to display data coming from a mock REST API
 
 Contributing
 ------------
@@ -8,7 +8,7 @@ Contributing
 In order to begin contirbuting please follow the below instructions
 
 1. Create a new descriptively-named branch off the main branch, such as feature/add-new-payment-types.
-2. Clone the repository in your local enviornment using https e.g. `git clone https://github.com/RichardMaybin-EN0096/mallard-data.git`
+2. Clone the repository in your local enviornment using https e.g. `git clone https://github.com/RichardMaybin-EN0096/mallard-mobileapp.git`
 3. Switch to the newly created branch locally e.g. `git checkout feature/add-new-payment-types`
 4. Commit new work to your local branch and regularly push work to the remote<br>
 `git add <new/updated file>`<br>
