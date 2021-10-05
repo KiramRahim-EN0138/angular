@@ -8,19 +8,16 @@ import { ApiService } from './api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title:string = 'arch';
-  data:string = '' 
-  receivedData = {}
+  apiData = {};
+  data: string = '';
 
   //methods for this component
-  // we need constructor to instantiate our service
-
   constructor(private apiService:ApiService){}
-  handleDataEvent(evt:any){ //typescrit needs data type
-    // here we handle custom dataEvent coming from login component
-    this.data = evt
+
+  handleDataEvent(evt:any){ 
+    this.data = evt;
   }
   makeServiceCall(){
-    this.apiService.getAllClaims().subscribe((apiData) => {this.receivedData = apiData});
-
-  }}
+    this.apiService.getAllClaims().subscribe((apiData) => {this.apiData = apiData});
+  }
+}
