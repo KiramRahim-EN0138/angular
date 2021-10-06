@@ -17,7 +17,5 @@ export class AppComponent {
   handleDataEvent(evt:any){ 
     this.data = evt;
   }
-  makeServiceCall(){
-    this.apiService.getAllClaims().subscribe((apiData) => {this.apiData = apiData});
-  }
+
 }

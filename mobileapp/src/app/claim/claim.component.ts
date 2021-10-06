@@ -18,6 +18,7 @@ export class ClaimComponent implements OnInit {
  
   }
 
+
   handleGetID(){
 
     // emit custom event
@@ -27,3 +28,4 @@ export class ClaimComponent implements OnInit {
 
 
   }
+
