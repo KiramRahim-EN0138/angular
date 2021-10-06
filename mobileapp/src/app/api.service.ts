@@ -23,9 +23,9 @@ export class ApiService {
     return this.http.delete(url);
   }
 
-  getClaim():Observable<any>{
+  getClaim(val:string):Observable<any>{
     //build url
-    let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/008`
+    let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/${val}`
     //make a request
     return this.http.get(url)
 

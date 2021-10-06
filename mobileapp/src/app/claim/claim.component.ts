@@ -8,28 +8,33 @@ import { ApiService } from '../api.service';
 export class ClaimComponent implements OnInit {
   apiData:string = '';
   apiDelete:string =  '';
+  idData:string = '';
 
   @Input () claim_id: string = '';
   claimIn : string = '';
+  idIn : string = '';
   constructor(private api: ApiService){​}​
 
   ngOnInit(): void {
   }
 
   assignClaimID(claimIn : string):void {
-    console.log(claimIn);
     this.claim_id = claimIn;
     this.handleDeleteByID();
+  }
+
+  assignId(idIn : string): void{
+    console.log(idIn);
+    this.handleGetID(idIn);
   }
   handleGetAll(){
     this.api.getAllClaims().subscribe((data) => {this.apiData = data});
   }
 
-  handleGetID(){
+  handleGetID(val:string){
 
     // emit custom event
-
-    this.api.getClaim().subscribe((data) => {this.apiData = data});
+    this.api.getClaim(val).subscribe((data) => {this.idData = data});
 
   }
 
