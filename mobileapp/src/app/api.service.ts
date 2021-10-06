@@ -17,4 +17,12 @@ export class ApiService {
     return this.http.get(url)
 
   }
+
+  getClaim():Observable<any>{
+    //build url
+    let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/008`
+    //make a request
+    return this.http.get(url)
+
+  }
 }
