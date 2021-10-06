@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output , NgModule} from '@angular/core';
 import { ApiService } from '../api.service';
 @Component({
   selector: 'app-claim',
@@ -7,15 +7,22 @@ import { ApiService } from '../api.service';
 })
 export class ClaimComponent implements OnInit {
   apiData:string = '';
+  apiDelete:string =  '';
 
+  @Input () claim_id: string = '';
+  claimIn : string = '';
   constructor(private api: ApiService){​}​
 
   ngOnInit(): void {
   }
+
+  assignClaimID(claimIn : string):void {
+    console.log(claimIn);
+    this.claim_id = claimIn;
+    this.handleDeleteByID();
+  }
   handleGetAll(){
-    // emit custom event
     this.api.getAllClaims().subscribe((data) => {this.apiData = data});
- 
   }
 
   handleGetID(){
@@ -34,5 +41,8 @@ export class ClaimComponent implements OnInit {
   }
 
 
+  handleDeleteByID(){
+    console.log(this.claim_id);
+    this.api.deleteByID(this.claim_id).subscribe((data) => {this.apiDelete = data});
   }
-
+}

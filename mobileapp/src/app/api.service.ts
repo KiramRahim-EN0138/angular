@@ -15,7 +15,12 @@ export class ApiService {
     let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/`
     //make a request
     return this.http.get(url)
+  }
 
+  deleteByID(val:string):Observable<any>{
+    console.log(val);
+    let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/${val}`;
+    return this.http.delete(url);
   }
 
   getClaim():Observable<any>{

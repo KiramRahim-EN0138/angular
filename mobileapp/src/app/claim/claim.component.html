@@ -13,3 +13,10 @@
 <button id = 'btnCallServicePost' (click) = 'handleAddClaim()'>callAPI</button>
 <p>For Debug: </p>
 <p>{{apiData | json}}</p>
+<hr/><hr>
+<h4>Accessing Claims API via a service - Delete By ID</h4>
+<input id = 'claimIn' name = 'claimIn' [ngModel] = claimIn #claimIn = "ngModel">
+<button id = 'btnCallService' (click) = 'assignClaimID(claimIn.value)'>callAPI</button>
+<p>For Debug: </p>
+<p>{{apiDelete | json}}</p>
+
