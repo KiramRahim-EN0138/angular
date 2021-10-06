@@ -18,5 +18,12 @@ export class ClaimComponent implements OnInit {
  
   }
 
-  
-}
+  handleGetID(){
+
+    // emit custom event
+    this.api.getClaim().subscribe((data) => {this.apiData = data});
+
+    }
+
+
+  }
