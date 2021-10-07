@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -12,7 +12,9 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   //instantiate httpClient
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  
+  }
 
   //claims methods
   getAllClaims():Observable<any>{
@@ -38,18 +40,27 @@ export class ApiService {
 
   postClaim():Observable<any>{
     //build url
+    
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Methods': 'PUT, POST'
+        // 'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+      })
+    };
+    
     let claimInfo = {
-
-        "claim_id" : "4242",
+        "claim_id" : "007",
         "category" : "heart",
-        "customer_id": "2",
+        "customer_id": "3",
         "price": "35,000",
         "status": "active"
       }
     
     let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/`
     //make a request
-    return this.http.post<any>(url, claimInfo);
+    return this.http.post(url,claimInfo,httpOptions)
 
   }
 
@@ -57,6 +68,8 @@ export class ApiService {
   getAllCustomers() {
     let url = `https://j4jwck9498.execute-api.eu-west-1.amazonaws.com/Prod`
     return this.http.get(url);
+    
+
   }
 
   getCustomerByID(val:string){
