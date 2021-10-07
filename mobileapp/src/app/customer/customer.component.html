@@ -7,3 +7,8 @@
 <input placeholder="Enter Customer ID..." id = 'idIn' name = 'idIn' [ngModel] = idIn #idIn = 'ngModel'>
 <button (click) = assignId(idIn.value)>GetByID</button>
 <p>{{idData | json}}</p>
+
+<h4>deleteCustomerByID</h4>
+<input placeholder="Enter Customer ID..." id = 'custIn' name = 'custIn' [ngModel] = custIn #custIn = 'ngModel'>
+<button (click) = 'assignId_Del(custIn.value)'>GetByID</button>
+<p>{{apiDelete | json}}</p>

@@ -65,4 +65,9 @@ export class ApiService {
       //make a request
       return this.http.get(url)
     }
+
+  deleteCustomerByID(val:string){
+      let url = `https://j4jwck9498.execute-api.eu-west-1.amazonaws.com/Prod/${val}`;
+      return this.http.delete(url);
+    }
   }

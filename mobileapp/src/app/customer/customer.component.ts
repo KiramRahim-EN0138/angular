@@ -10,6 +10,9 @@ export class CustomerComponent implements OnInit {
 
   apiData = {};
   idData = {};
+  apiDelete = {};
+  customer_id = '';
+
 
   constructor(private api: ApiService) { }
 
@@ -29,4 +32,14 @@ export class CustomerComponent implements OnInit {
     this.api.getCustomerByID(val).subscribe((data) => {this.idData = data});
   }
 
+  assignId_Del(idIn : string): void{
+    console.log(idIn);
+    this.customer_id = idIn;
+    this.handleDeleteByID();
+  }
+
+  handleDeleteByID(){
+    console.log(this.customer_id);
+    this.api.deleteCustomerByID(this.customer_id).subscribe((data) => {this.apiDelete = data});
+  }
 }
