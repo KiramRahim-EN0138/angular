@@ -1,9 +1,11 @@
-<hr/>
+
+<br/>
 <h4>Accessing Claims API via a service - getAll</h4>
 <button id = 'btnCallService' (click) = 'handleGetAll()'>callAPI</button>
 <p>For Debug: </p>
 <p>{{apiData | json}}</p>
 
+<br/>
 <h4>Accessing Claims API via a service - getByID</h4>
 <input placeholder="Enter Claim ID..." id = 'idIn' name = 'idIn' [ngModel] = idIn #idIn = 'ngModel'>
 <button id = 'btnCallServiceGet' (click) = 'assignId(idIn.value)'>callAPI</button>
@@ -11,7 +13,7 @@
 <p>{{idData | json}}</p>
 
 
-
+<br/>
 <form>
 <h4>Accessing Claims API via a service - postClaim</h4>
 <label for="claim-id">claim id: </label>
@@ -29,16 +31,12 @@
 <label for="first-name">status: </label>
 <input id = 'claimPostIn' name = 'claimPost' [ngModel] = claimIn #claimPostIn = "ngModel">
 <br/>
-
-
 <button id = 'btnCallServicePost' (click) = 'handleAddClaim()'>callAPI</button>
 <p>For Debug: </p>
 <p>{{apiPost | json}}</p>
 </form>
 
-
-
-<hr/><hr>
+<br/>
 <h4>Accessing Claims API via a service - Delete By ID</h4>
 <input placeholder="Enter Claim ID.." id = 'claimIn' name = 'claimIn' [ngModel] = claimIn #claimIn = "ngModel">
 <button id = 'btnCallService' (click) = 'assignClaimID(claimIn.value)'>callAPI</button>

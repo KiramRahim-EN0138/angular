@@ -1,14 +1,18 @@
-<h1>Customer</h1>
-<h4>getAllCustomer data</h4><button (click) = 'handleGetAll()'>getAll</button>
+<section>
+<br/>
+<h4>Accessing Customers API via a service - getAll</h4>
+<button (click) = 'handleGetAll()'>getAll</button>
 <p>{{apiData | json}}</p>
-<hr><hr>
 
-<h4>getCustomerByID</h4>
+<br/>
+<h4>Accessing Claims API via a service - getCustomerByID</h4>
 <input placeholder="Enter Customer ID..." id = 'idIn' name = 'idIn' [ngModel] = idIn #idIn = 'ngModel'>
 <button (click) = assignId(idIn.value)>GetByID</button>
 <p>{{idData | json}}</p>
-
-<h4>deleteCustomerByID</h4>
+<br/>
+<h4>Accessing Claims API via a service - deleteCustomerByID</h4>
 <input placeholder="Enter Customer ID..." id = 'custIn' name = 'custIn' [ngModel] = custIn #custIn = 'ngModel'>
 <button (click) = 'assignId_Del(custIn.value)'>GetByID</button>
 <p>{{apiDelete | json}}</p>
+</section>
+
