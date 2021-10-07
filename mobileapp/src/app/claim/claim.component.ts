@@ -47,6 +47,17 @@ export class ClaimComponent implements OnInit {
     this.api.postClaim().subscribe((data) => {this.apiPost = data});
   }
 
+  makePostCall(){
+    let payload = {'claim_id' : '008',
+    'category' : 'heart',
+    'customer_id': '3',
+    'price': '35,000',
+    'status': 'active'}
+    this.api.getFromAPI()
+      .subscribe( (resp)=>{
+        console.log(resp)
+      } )
+  }
 
   handleDeleteByID(){
     console.log(this.claim_id);

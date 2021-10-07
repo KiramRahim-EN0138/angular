@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators'
 
 // Allow CORS
 
@@ -44,9 +45,9 @@ export class ApiService {
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'http://10.53.162.38:4200/',
         // 'Access-Control-Allow-Methods': 'PUT, POST'
-        // 'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+        // 'Access-Control-Allow-Headers': 'Content-Type'
       })
     };
     
@@ -83,4 +84,49 @@ export class ApiService {
       let url = `https://j4jwck9498.execute-api.eu-west-1.amazonaws.com/Prod/${val}`;
       return this.http.delete(url);
     }
+
+// try to make a POST request
+getFromAPI() {
+  // a sample API that handles POST requests
+  let url = 'https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/'
+
+  let headers = new Headers();
+
+  headers.append('Content-Type', 'application/json');
+  headers.append('Accept', 'application/json');
+
+  headers.append('Access-Control-Allow-Origin', 'http://localhost:4200/');
+  headers.append('Access-Control-Allow-Credentials', 'true');
+  // headers.append('data', dataBundle)
+  // headers.append('GET', 'POST', 'OPTIONS');
+
+  // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" + password));
+
+
+
+  return this.http.post(url, headers)
+  .pipe(
+    catchError(this.handleError)
+  );
+}
+
+// method to handle any http errors
+handleError(error: HttpErrorResponse) {
+  if (error.error instanceof ErrorEvent) {
+    // A client-side or network error occurred. Handle it accordingly.
+    console.error('An error occurred:', error.error.message);
+  } else {
+    // The backend returned an unsuccessful response code.
+    // The response body may contain clues as to what went wrong,
+    console.error(
+      `Backend returned code ${error.status}, ` +
+      `body was: ${error.error}`);
+  }
+  // return an observable with a user-facing error message
+  return throwError(
+    'Something unexpected happened');
+};
+
+
+
   }
