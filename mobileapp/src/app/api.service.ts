@@ -33,7 +33,7 @@ export class ApiService {
 
   postClaim():Observable<any>{
     //build url
-    let info = {
+    let claimInfo = {
       
         "claim_id" : "005",
         "category" : "heart",
@@ -42,11 +42,11 @@ export class ApiService {
         "status": "active"
       }
     
-    let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/${info}`
+    let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/`
     //make a request
 
 
-    return this.http.get(url)
+    return this.http.post(url,claimInfo)
 
   }
 

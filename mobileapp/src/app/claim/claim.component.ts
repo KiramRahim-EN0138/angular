@@ -8,6 +8,7 @@ import { ApiService } from '../api.service';
 export class ClaimComponent implements OnInit {
   apiData:string = '';
   apiDelete:string =  '';
+  apiPost:string =  '';
   idData:string = '';
 
   @Input () claim_id: string = '';
@@ -27,6 +28,7 @@ export class ClaimComponent implements OnInit {
     console.log(idIn);
     this.handleGetID(idIn);
   }
+  
   handleGetAll(){
     this.api.getAllClaims().subscribe((data) => {this.apiData = data});
   }
@@ -42,7 +44,7 @@ export class ClaimComponent implements OnInit {
 
     // emit custom event
 
-    this.api.postClaim().subscribe((data) => {this.apiData = data});
+    this.api.postClaim().subscribe((data) => {this.apiPost = data});
   }
 
 

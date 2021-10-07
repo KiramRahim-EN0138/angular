@@ -10,15 +10,40 @@
 <p>For Debug: </p>
 <p>{{idData | json}}</p>
 
+
+
+<form>
+<h4>Accessing Claims API via a service - postClaim</h4>
+<label for="claim-id">claim id: </label>
+<input id = 'claimPostIn' name = 'claimPost' [ngModel] = claimIn #claimPostIn = "ngModel">
+<br/>
+<label for="first-name">category: </label>
+<input id = 'claimPostIn' name = 'claimPost' [ngModel] = claimIn #claimPostIn = "ngModel">
+<br/>
+<label for="first-name">customer id: </label>
+<input id = 'claimPostIn' name = 'claimPost' [ngModel] = claimIn #claimPostIn = "ngModel">
+<br/>
+<label for="first-name">price: </label>
+<input id = 'claimPostIn' name = 'claimPost' [ngModel] = claimIn #claimPostIn = "ngModel">
+<br/>
+<label for="first-name">status: </label>
+<input id = 'claimPostIn' name = 'claimPost' [ngModel] = claimIn #claimPostIn = "ngModel">
+<br/>
+
+
+<button id = 'btnCallServicePost' (click) = 'handleAddClaim()'>callAPI</button>
+<p>For Debug: </p>
+<p>{{apiPost | json}}</p>
+</form>
+
+
+
+<hr/><hr>
 <h4>Accessing Claims API via a service - Delete By ID</h4>
 <input placeholder="Enter Claim ID.." id = 'claimIn' name = 'claimIn' [ngModel] = claimIn #claimIn = "ngModel">
 <button id = 'btnCallService' (click) = 'assignClaimID(claimIn.value)'>callAPI</button>
 <p>For Debug: </p>
 <p>{{apiDelete | json}}</p>
 
-<h4>Accessing Claims API via a service - postClaim</h4>
-<button id = 'btnCallServicePost' (click) = 'handleAddClaim()'>callAPI</button>
-<p>For Debug: </p>
-<p></p>
-<hr/><hr>
+
 
