@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output , NgModule} from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+ // @Output(){
+
+    //user = {username:'', password:''}
+//  }
   constructor() { }
 
   ngOnInit(): void {
