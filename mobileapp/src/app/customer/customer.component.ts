@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-customer',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor() { }
+  apiData = {};
+  idData = {};
+
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+  }
+
+  handleGetAll(){
+    this.api.getAllCustomers().subscribe((data) => {this.apiData = data});
+  }
+
+  assignId(idIn : string): void{
+    console.log(idIn);
+    this.handleGetByID(idIn);
+  }
+
+  handleGetByID(val: string){
+    this.api.getCustomerByID(val).subscribe((data) => {this.idData = data});
   }
 
 }
