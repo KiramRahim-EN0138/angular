@@ -43,7 +43,18 @@
 <p>For Debug: </p>
 <p>{{apiDelete | json}}</p> -->
 <h4>Claims Details</h4>
-<table>
+<div class="form-group">
+    <strong>Filter</strong>
+    <select aria-placeholder="Filter.." class="form-control"
+            [(ngModel)]="filterCategory">   
+      <option value="heart">Heart</option>
+      <option value="accident">Accident</option>
+      <option value="respritory">Respritory</option>
+      <option value="Comprehensive">Comprehensive</option>
+    </select>
+  </div>  
+
+<table id = 'claims'>
   <thead>
       <tr>
           <th>Claim ID</th>
@@ -53,7 +64,7 @@
       </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let claim of allClaimsData">
+      <tr *ngFor="let claim of allClaimsData | tableFilter: filterCategory">
           <td>{{claim.claim_id}}</td>
           <td>{{claim.category}}</td>
           <td>{{claim.status}}</td>

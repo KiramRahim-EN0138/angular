@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 import { DemoComponent } from './demo/demo.component';
 import { HomeComponent } from './home/home.component';
+import { TableFilterPipe } from './table-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     NavComponent,
     DemoComponent,
-    HomeComponent
+    HomeComponent,
+    TableFilterPipe
   ],
   imports: [
     BrowserModule,

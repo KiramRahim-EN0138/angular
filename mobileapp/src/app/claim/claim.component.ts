@@ -75,9 +75,11 @@ import { CustomerComponent } from '../customer/customer.component';
 export class ClaimComponent implements OnInit {
   allClaimsData:any;
   claimsData:any;
+  filterCategory:string;
 
   apiDelete:string =  '';
   apiPost:string =  '';
+  
   
 
   @Input () claim_id: string = '';
