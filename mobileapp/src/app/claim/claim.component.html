@@ -42,6 +42,12 @@
 <button id = 'btnCallService' (click) = 'assignClaimID(claimIn.value)'>callAPI</button>
 <p>For Debug: </p>
 <p>{{apiDelete | json}}</p> -->
+
+<!-- <button id = 'btnCallServicePost' (click) = 'getFromAPI()'>callAPI</button>
+<p>For Debug: </p>
+<p>{{apiPost | json}}</p>  -->
+
+
 <h4>Claims Details</h4>
 <div class="form-group">
     <strong>Filter</strong>
@@ -55,6 +61,10 @@
   </div>  
 
 <table id = 'claims'>
+<button id = 'btnCallServicePost' (click) = 'makePostCall()'>callAPI</button>
+<p>For Debug: </p>
+<p>{{apiPost | json}}</p> 
+<table>
   <thead>
       <tr>
           <th>Claim ID</th>

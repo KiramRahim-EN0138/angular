@@ -17,6 +17,34 @@ export class ApiService {
   
   }
 
+
+    // try to make a POST request
+    getFromAPI() {
+      // a sample API that handles POST requests
+      let claimInfo = {
+        "claim_id" : "008",
+        "category" : "heart",
+        "customer_id": "3",
+        "price": "35,000",
+        "status": "active"
+      }
+      let claimInfoJ = JSON.stringify(claimInfo)
+      let url = 'https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/'
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          // 'charset':'UTF-8', // careful - the server may actively DISLIKE these headers!!!
+          // 'Accept':'application/json',
+          // 'Access-Control-Allow-Origin':'http://localhost:4200',
+        })
+      }
+
+      return this.http.post(url, claimInfoJ,httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+    }
+
   //claims methods
   getAllClaims():Observable<any>{
     //build url
@@ -39,37 +67,7 @@ export class ApiService {
 
   }
 
-  postClaim(){
-    //build url
-    
-    // let httpOptions = {
-    //   headers: new HttpHeaders({
-    //     "Content-Type": "application/json; charset=UTF-8"
-
-    //   })
-    // };
-    
-    let claimInfo = {
-        "claim_id" : "007",
-        "category" : "heart",
-        "customer_id": "3",
-        "price": "35,000",
-        "status": "active"
-      }
-      fetch('https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/',
-      {
-                  method: "POST",
-                  body: JSON.stringify(claimInfo),
-                  headers: {"Content-type": "application/json; charset=UTF-8"}
-              })
-              .then(response => response.json())
-              .then(json => console.log(json))
-              .catch(err => console.log(err));
-    // let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/`
-    //make a request
-    // return this.http.post(url,claimInfo,httpOptions)
-
-  }
+  
 
   //customer metods
   getAllCustomers() {
@@ -89,30 +87,6 @@ export class ApiService {
       return this.http.delete(url);
     }
 
-// try to make a POST request
-getFromAPI() {
-  // a sample API that handles POST requests
-  let url = 'https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/'
-
-  let headers = new Headers();
-
-  headers.append('Content-Type', 'application/json');
-  headers.append('Accept', 'application/json');
-
-  headers.append('Access-Control-Allow-Origin', 'http://localhost:4200/');
-  headers.append('Access-Control-Allow-Credentials', 'true');
-  // headers.append('data', dataBundle)
-  // headers.append('GET', 'POST', 'OPTIONS');
-
-  // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" + password));
-
-
-
-  return this.http.post(url, headers)
-  .pipe(
-    catchError(this.handleError)
-  );
-}
 
 // method to handle any http errors
 handleError(error: HttpErrorResponse) {
