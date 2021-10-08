@@ -16,43 +16,15 @@
         <h1>Aflac Customer Claim Info</h1>
     </div>
     
-    <nav class="navbar navbar-default" id = "navbar">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Aflac</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Customers</a></li>
-            <li><a href="#">Claims</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="container">
-        <div class="row">
-
-          <div class="col-sm-6">
-            <h3>Claims</h3>
-            <app-claim></app-claim>
-          </div>
-          <div class="col-sm-3">
-            <h3>Customers</h3>
-            <app-customer></app-customer>
-          </div>
-        
-        </div>
-      </div>
-    
+    <app-nav></app-nav>
+    <router-outlet>
+    </router-outlet>
+       
     <hr><hr>
     
-</body>
 
-</html>
+
+
 
 
 

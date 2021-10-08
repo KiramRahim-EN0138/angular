@@ -1,4 +1,4 @@
-
+<!-- 
 <br/>
 <h4>Accessing Claims API via a service - getAll</h4>
 <button id = 'btnCallService' (click) = 'handleGetAll()'>callAPI</button>
@@ -41,7 +41,28 @@
 <input placeholder="Enter Claim ID.." id = 'claimIn' name = 'claimIn' [ngModel] = claimIn #claimIn = "ngModel">
 <button id = 'btnCallService' (click) = 'assignClaimID(claimIn.value)'>callAPI</button>
 <p>For Debug: </p>
-<p>{{apiDelete | json}}</p>
+<p>{{apiDelete | json}}</p> -->
+<h4>Claims Details</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Claim ID</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let claim of allClaimsData">
+          <td>{{claim.claim_id}}</td>
+          <td>{{claim.category}}</td>
+          <td>{{claim.status}}</td>
+          <td>{{claim.price}}</td>
+      </tr>
+  </tbody>
+</table>
+
+
 
 
 

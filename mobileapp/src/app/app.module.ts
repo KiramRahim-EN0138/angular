@@ -8,13 +8,19 @@ import { ClaimComponent } from './claim/claim.component';
 import { FormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { NavComponent } from './nav/nav.component';
+import { DemoComponent } from './demo/demo.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
     ClaimComponent,
-    LoginComponent
+    LoginComponent,
+    NavComponent,
+    DemoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

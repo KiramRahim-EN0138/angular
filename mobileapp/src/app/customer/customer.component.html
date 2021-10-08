@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
 <br/>
 <h4>Accessing Customers API via a service - getAll</h4>
 <button (click) = 'handleGetAll()'>getAll</button>
@@ -14,5 +14,24 @@
 <input placeholder="Enter Customer ID..." id = 'custIn' name = 'custIn' [ngModel] = custIn #custIn = 'ngModel'>
 <button (click) = 'assignId_Del(custIn.value)'>GetByID</button>
 <p>{{apiDelete | json}}</p>
-</section>
+</section> -->
 
+
+<h3>Customer Details</h3>
+<section>
+    <table>
+      <thead>
+          <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Customer ID</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let people of allCustomerData">
+              <td>{{people.first_name}}</td>
+              <td>{{people.last_name}}</td>
+              <td>{{people.customer_id}}</td>
+          </tr>
+      </tbody>
+  </table>
