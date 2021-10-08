@@ -31,7 +31,7 @@
 <label for="first-name">status: </label>
 <input id = 'claimPostIn' name = 'claimPost' [ngModel] = claimIn #claimPostIn = "ngModel">
 <br/>
-<button id = 'btnCallServicePost' (click) = 'handleAddClaim()'>callAPI</button>
+<button id = 'btnCallServicePost' (click) = 'postClaim()'>callAPI</button>
 <p>For Debug: </p>
 <p>{{apiPost | json}}</p>
 </form>
