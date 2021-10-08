@@ -39,17 +39,15 @@ export class ApiService {
 
   }
 
-  postClaim():Observable<any>{
+  postClaim(){
     //build url
     
-    let httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Access-Control-Allow-Origin': 'http://10.53.162.38:4200/',
-        // 'Access-Control-Allow-Methods': 'PUT, POST'
-        // 'Access-Control-Allow-Headers': 'Content-Type'
-      })
-    };
+    // let httpOptions = {
+    //   headers: new HttpHeaders({
+    //     "Content-Type": "application/json; charset=UTF-8"
+
+    //   })
+    // };
     
     let claimInfo = {
         "claim_id" : "007",
@@ -58,10 +56,18 @@ export class ApiService {
         "price": "35,000",
         "status": "active"
       }
-    
-    let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/`
+      fetch('https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/',
+      {
+                  method: "POST",
+                  body: JSON.stringify(claimInfo),
+                  headers: {"Content-type": "application/json; charset=UTF-8"}
+              })
+              .then(response => response.json())
+              .then(json => console.log(json))
+              .catch(err => console.log(err));
+    // let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/`
     //make a request
-    return this.http.post(url,claimInfo,httpOptions)
+    // return this.http.post(url,claimInfo,httpOptions)
 
   }
 

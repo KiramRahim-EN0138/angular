@@ -110,11 +110,44 @@ export class ClaimComponent implements OnInit {
 
   }
 
-  handleAddClaim(){
+  // handleAddClaim(){
 
-    // emit custom event
+  //   // emit custom event
 
-    this.api.postClaim().subscribe((data) => {this.apiPost = data});
+  //   this.api.postClaim().subscribe((data) => {this.apiPost = data});
+  // }
+
+  postClaim(){
+    //build url
+    
+    // let httpOptions = {
+    //   headers: new HttpHeaders({
+    //     "Content-Type": "application/json; charset=UTF-8"
+
+    //   })
+    // };
+    
+    let claimInfo = {
+        "claim_id" : "007",
+        "category" : "heart",
+        "customer_id": "3",
+        "price": "35,000",
+        "status": "active"
+      }
+      fetch('https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/',
+      {
+                  mode: "no-cors",
+                  method: "PUT",
+                  body: JSON.stringify(claimInfo),
+                  headers: {"Content-type": "application/json; charset=UTF-8"}
+              })
+              .then(response => response.json())
+              .then(json => console.log(json))
+              .catch(err => console.log(err));
+    // let url = `https://92jpr1aipd.execute-api.eu-west-1.amazonaws.com/Prod/`
+    //make a request
+    // return this.http.post(url,claimInfo,httpOptions)
+
   }
 
 
