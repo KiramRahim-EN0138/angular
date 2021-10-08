@@ -44,7 +44,7 @@
 //   }
 // }
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Injectable} from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -53,7 +53,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-
+  
   allCustomerData:any;
   customerData:any;
 
@@ -100,5 +100,4 @@ export class CustomerComponent implements OnInit {
   showAllCustomers(){
     this.handleGetAll();
   }
-  
 }

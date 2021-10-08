@@ -75,8 +75,6 @@ export class ApiService {
   getAllCustomers() {
     let url = `https://j4jwck9498.execute-api.eu-west-1.amazonaws.com/Prod`
     return this.http.get(url);
-    
-
   }
 
   getCustomerByID(val:string){

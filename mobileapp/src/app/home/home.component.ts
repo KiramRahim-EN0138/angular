@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { CustomerComponent } from '../customer/customer.component';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  @Input() customerData:any;
-  constructor() { }
+  customerData:any;
+  constructor(private api:ApiService) { }
+
 
   ngOnInit(): void {
+    this.api.getCustomerByID('2').subscribe((data) => {this.customerData = data});
+  }
+
+  showCustomerDetails(){
   }
 
 }
